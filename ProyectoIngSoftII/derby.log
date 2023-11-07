@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Nov 07 08:14:59 CST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-018b-aa22-ef64-00000a257488 
+on database directory /home/oracle/Documents/Septimo/IngenieriaDeSoftwareII/Practicas/ProyectoIngSoftII/BaseDatosProyecto with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
+Loaded from file:/home/oracle/Documents/Septimo/IngenieriaDeSoftwareII/db-derby-10.16.1.1-bin/lib/derby.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.7+7
+user.dir=/home/oracle/Documents/Septimo/IngenieriaDeSoftwareII/Practicas/ProyectoIngSoftII
+os.name=Linux
+os.arch=amd64
+os.version=5.4.17-2136.323.8.el8uek.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
