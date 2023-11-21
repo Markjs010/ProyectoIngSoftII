@@ -1,0 +1,112 @@
+
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	background-color: rgb(255, 255, 255); /* Color naranja semitransparente */
+
+}
+
+.container {	
+	width: 320px;
+	margin: 100px auto;
+	background-color: rgb(0, 0, 128,0.2);
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.containerLittle {
+	width: 90%;
+	margin: 20px auto;
+	padding: 50px;
+ 	display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ajusta el tamaño mínimo y máximo según tu diseño */
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+.containerBig {
+    width: 60%;
+    margin: 70px auto;
+    background-color: rgb(0, 0, 128,0.2);
+    padding: 50px;
+    border-radius: 10px;
+    float: right;
+    margin-right: 50px;
+}
+.containerEncabezado {
+    width: 100%;
+    max-height: 4%;
+    background-color: rgb(0, 0, 64);
+    padding: 15px;
+   	
+   
+}
+.containerIzq {
+ 	width: 10%;
+    margin: 70px auto;
+    background-color: rgb(0, 0, 128,0.2);
+    padding: 50px;
+    border-radius: 10px;
+    float: left;
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Ajusta el tamaño mínimo y máximo según tu diseño */
+    gap: 10px;
+}
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	margin: 10px auto;
+}
+
+label {
+	margin-bottom: 7px;
+}
+
+input {
+	padding: 10px;
+	margin-bottom: 20px;
+	border: none;
+	border-radius: 5px;
+}
+
+button {
+	padding: 10px;
+	background-color: rgb(0, 0, 64);
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	align-items: center;
+    justify-content: center;
+    
+    font-size: 16px; /* Ajusta el tamaño de la letra según tus preferencias */
+    font-weight: bold
+}
+
+button:hover {
+	background-color: rgb(0, 0, 128);
+}
+	
+#error-message {
+	color: red;
+	text-align: center;
+	margin-top: 10px;
+}
+
+#imgEnc {
+    width: 10%;
+    padding: 10px; 
+    margin-left: 20px;
+
+}
+#imgLogo {
+    width: 37%;
+    height: auto;
+}
