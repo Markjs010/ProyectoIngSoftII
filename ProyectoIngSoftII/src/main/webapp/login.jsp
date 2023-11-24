@@ -5,6 +5,10 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+	<div class="containerEncabezado">
+		<div style="text-align: center;">
+   		<img id="imgLogo" src="img/logoH.png" alt="Logo Etnia"></div>
+	</div>
 	<div class="container">
 		<div style="text-align: center;">
    		<img id="imgLogo" src="img/logo.png" alt="Logo Etnia"></div>
