@@ -11,16 +11,16 @@
 
 	<div class="containerEncabezado">
 		<div style="text-align: center;">
-   		<img id="imgEnc" src="img/logo.png" alt="Logo Etnia"></div>
+   		<img id="imgLogo" src="img/logoH.png" alt="Logo Etnia"></div>
 	</div>
 	<div class="containerIzq">
-		 <center><button type="submit"> Registrar Alumno </button></center>
-		 <center><button type="submit"> Registrar Indumentaria</button></center>
-		 <center><button type="submit"> Registrar Prestamo</button></center>
+		<div style="text-align: center;"><button id="btn__regisAlumno" > Registrar Alumno </button></div>
+		<div style="text-align: center;"><button id="btn__regisIndumentaria" > Registrar Indumentaria</button></div>
+		 <div style="text-align: center;"><button id="btn__regisPrestamo" > Registrar Prestamo</button></div>
 	</div>
-    <div class="containerBig">
+    <div class="containerBig_regAlumno">
     	<div style="text-align: center;">
-    	<h1>Formulario de Ingreso de Estudiantes</h1>
+    	<h1>Formulario de Ingreso de Alumno</h1>
     	<div class="containerLittle">
     		<form action="">
             	<label for="nombre">Nombre:</label>
@@ -43,7 +43,7 @@
            		<input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
         	</form>
 			<form action="/procesar-formulario" method="post">
-          		<label for="fechaNacimiento">Fecha de Nacimiento:</label>
+          		<label for="fechaNacimiento">Fecha de Ingreso:  </label>
            		<input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
         	</form>
 			
@@ -52,5 +52,52 @@
            
          </div>
     </div>
+    
+        <div class="containerBig_regIndumentaria">
+    	<div style="text-align: center;">
+    	<h1>Formulario de Ingreso de Alumno</h1>
+    	<div class="containerLittle">
+    		<form action="">
+            	<label for="nombre">Nombre:</label>
+            	<input type="text" id="nombre" name="nombre" required>
+            </form>
+			<form action="">
+            	<label for="carrera">Carrera:</label>
+            	<input type="text" id="carrera" name="carrera" required>
+            </form>
+ 			<form action="/procesar-formulario" method="post">
+          		<label for="fechaNacimiento">Fecha de Nacimiento:</label>
+           		<input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+        	</form>
+			<form action="/procesar-formulario" method="post">
+          		<label for="fechaNacimiento">Fecha de Ingreso:  </label>
+           		<input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+        	</form>
+			
+          </div>
+           <center><button type="submit"> Registrar </button></center>
+           
+         </div>
+    </div>
+    
+    <div class="containerBig_regAlumno">
+    	<div style="text-align: center;">
+    	<h1>Formulario de Ingreso de Alumno</h1>
+    	<div class="containerLittle">
+ 			<form action="/procesar-formulario" method="post">
+          		<label for="fechaNacimiento">Fecha de Nacimiento:</label>
+           		<input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+        	</form>
+			<form action="/procesar-formulario" method="post">
+          		<label for="fechaNacimiento">Fecha de Ingreso:  </label>
+           		<input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+        	</form>
+			
+          </div>
+           <center><button type="submit"> Registrar </button></center>
+           
+         </div>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
