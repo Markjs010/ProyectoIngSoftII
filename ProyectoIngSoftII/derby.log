@@ -1,11 +1,11 @@
 ----------------------------------------------------------------
-Tue Nov 07 08:14:59 CST 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-018b-aa22-ef64-00000a257488 
-on database directory /home/oracle/Documents/Septimo/IngenieriaDeSoftwareII/Practicas/ProyectoIngSoftII/BaseDatosProyecto with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@42110406 
+Thu Nov 30 14:52:20 CST 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-018c-2200-ff0b-00000a478328 
+on database directory /home/oracle/git/ProyectoIngSoftII/ProyectoIngSoftII/BaseDatosProyecto with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5cb0d902 
 Loaded from file:/home/oracle/Documents/Septimo/IngenieriaDeSoftwareII/db-derby-10.16.1.1-bin/lib/derby.jar
-java.vendor=Eclipse Adoptium
-java.runtime.version=17.0.7+7
-user.dir=/home/oracle/Documents/Septimo/IngenieriaDeSoftwareII/Practicas/ProyectoIngSoftII
+java.vendor=Oracle Corporation
+java.runtime.version=17.0.8+9-LTS-211
+user.dir=/home/oracle/git/ProyectoIngSoftII/ProyectoIngSoftII
 os.name=Linux
 os.arch=amd64
 os.version=5.4.17-2136.323.8.el8uek.x86_64
