@@ -8,15 +8,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class ObtenerData
+ * Servlet implementation class LoginCheck
  */
-public class ObtenerData extends HttpServlet {
+public class LoginCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ObtenerData() {
+    public LoginCheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -25,7 +25,7 @@ public class ObtenerData extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -33,8 +33,16 @@ public class ObtenerData extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String usuario = request.getParameter("usuario");
+		String pass = request.getParameter("pass");
+		if(usuario.equals("Hola") && pass.equals("1234")) {
+			response.sendRedirect("adminV.jsp");
+		}else {
+			response.sendRedirect("error.jsp");
+			{
+				
+			}
+		}
 	}
 
 }
