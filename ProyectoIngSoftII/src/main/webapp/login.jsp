@@ -6,8 +6,15 @@
 </head>
 <body>
 	<div class="containerEncabezado">
+		<div id="divtitulo" style="text-align: Center;">
+   		<label id="tituloLogin" for="titulo">MAS QUE DANZA</label>
+   		</div>
 		<div style="text-align: center;">
-   		<img id="imgLogo" src="img/logoH.png" alt="Logo Etnia"></div>
+   			<img id="imgEnc" src="img/logoH.png" alt="Logo">
+   		</div>
+   		<div id="divtitulo" style="text-align: Center;">
+   		<label id="tituloLogin" for="titulo">MAS FAMILIA</label>
+   		</div>
 	</div>
 	<div class="container">
 		<div style="text-align: center;">
