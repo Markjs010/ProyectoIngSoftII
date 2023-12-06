@@ -2,8 +2,8 @@ package modelo;
 
 public class Estudiante implements Data {
 	private String nombre, apellido, observaciones, telefono, seguro, usuario, pass;
-	private int id;
-	
+	private int id, idClase;
+
 	public Estudiante(String nombre, String apellido, String usuario, String pass, int id) {
 		super();
 		this.nombre = nombre;
@@ -77,5 +77,12 @@ public class Estudiante implements Data {
 		this.seguro = seguro;
 	}
 	
+	public int getIdClase() {
+		return idClase;
+	}
+
+	public void setIdClase(int idClase) {
+		this.idClase = idClase;
+	}
 	
 }
