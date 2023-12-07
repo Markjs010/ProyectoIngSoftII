@@ -5,7 +5,7 @@ window.addEventListener("resize", anchoPage);
 
 //Declarando variables
 var formulario_verA = document.querySelector("#InfoPersonal");
-var formulario_verP = document.querySelector("#Prestamos");
+var formulario_verP = document.querySelector("#Ver_Prestamos");
 
     //FUNCIONES
 

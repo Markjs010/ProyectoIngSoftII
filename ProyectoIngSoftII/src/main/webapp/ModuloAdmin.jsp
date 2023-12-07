@@ -116,7 +116,7 @@
 					    </tr>
 					    
 					    <tr>
-					      <td>Información1</td>
+					      <td>Información1.png</td>
 					    </tr>
 					  </table>
 								

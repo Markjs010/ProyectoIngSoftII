@@ -82,7 +82,7 @@
  	</div>   
 
 	</div>
-    <div class="containerBig" id="Prestamos">
+    <div class="containerBig" id="Ver_Prestamos">
     	<div style="text-align: center;">
     		<h1>Información de Prestamos</h1>
     		<div class="containerLittleTablas" >

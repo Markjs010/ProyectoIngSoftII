@@ -73,7 +73,7 @@ function RegistrarDocente(){
 		btn_NuevoD.style.display = "none";
 
      }
-  }
+ }
 
 function Multimedia(){
      if (window.innerWidth > 850){
