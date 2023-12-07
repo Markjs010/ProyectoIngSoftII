@@ -6,15 +6,27 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import modelo.data.EstudianteDAO;
+
 
 public class Principal {
 
 	public static void main(String[] args) {
-			Connection conn = getDBConnection();
-			if(conn != null) {
-				
-			}
-				
+		
+		EstudianteDAO estudianteDAO;
+		
+		Connection conn = getDBConnection();
+		if(conn != null) {
+			
+			
+			// DAOS
+			estudianteDAO = new EstudianteDAO();
+			
+			// CONEXIONES A DAOS
+			estudianteDAO.setConn(conn);
+			
+			//DAO A CONTROLES
+		}		
 
 	}
 	
