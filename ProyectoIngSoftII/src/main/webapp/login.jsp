@@ -20,7 +20,7 @@
 		<div style="text-align: center;">
    		<img id="imgLogo" src="img/logo.png" alt="Logo Etnia"></div>
 		<h1>Iniciar Sesión</h1>
-		<form id="login-form" action="LoginServlet" method="post">
+		<form id="login-form" action="Login" method="post">
 			<label for="username">Usuario:</label>
 			<input type="text" id="username" name="username" required>
 			<label for="password">Contraseña:</label>
@@ -28,7 +28,9 @@
 			<center><button type="submit" >Ingresar</button></center>
 		</form>
 		
-		<p id="error-message"></p>
+		<% if (request.getAttribute("error") != null) { %>
+            <div style="color: red;"><%= request.getAttribute("error") %></div>
+        <% } %>
 	</div>
 </body>
 </html>

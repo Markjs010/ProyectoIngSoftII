@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <!-- Configuración del DataSource para Derby -->
+    <Resource name="jdbc/RecursoJDBC" auth="Container" type="javax.sql.DataSource"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+              driverClassName="org.apache.derby.jdbc.ClientDriver"
+              url="jdbc:derby://localhost:1527//home/oracle/git/ProyectoIngSoftII/ProyectoIngSoftII/BaseDatosProyecto"/>
+</Context>

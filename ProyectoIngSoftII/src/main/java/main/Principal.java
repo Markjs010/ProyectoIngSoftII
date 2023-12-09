@@ -6,44 +6,34 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
+
 import modelo.data.EstudianteDAO;
+import servlets.Login;
 
 
 public class Principal {
 
 	public static void main(String[] args) {
 		
-		EstudianteDAO estudianteDAO;
 		
-		Connection conn = getDBConnection();
-		if(conn != null) {
-			
-			
-			// DAOS
-			estudianteDAO = new EstudianteDAO();
-			
-			// CONEXIONES A DAOS
-			estudianteDAO.setConn(conn);
-			
-			//DAO A CONTROLES
-		}		
+		
+		EstudianteDAO estudianteDAO;
+		try (// DATASOURCE PARA LLAMAR A LA BASE
+		BasicDataSource dataSource = new BasicDataSource()) {
+			// ESPECIFICAMOS EL DRIVER
+			dataSource.setDriverClassName("org.apache.derby.jdbc.ClientDriver");
+			// ESPECIFICAMOS LA URL DE LA BASE 
+			// IMPORTANTE: CAMBIAR URL DEPENDIENDO DE EN DONDE SE TENGA LA BASE
+			dataSource.setUrl("jdbc:derby://localhost:1527//home/oracle/git/ProyectoIngSoftII/ProyectoIngSoftII/BaseDatosProyecto");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+       	
 
 	}
-	
-	public static Connection getDBConnection() {
-		 String url          = "jdbc:derby:BaseDatosProyecto;create=true";
-		 try
-	        {
-	            Connection conn = DriverManager.getConnection(url);
-	            System.out.println("Conectado ... "+ conn);
-	            return conn;
-	        }
-	        catch (SQLException e)
-	        {
-	              JOptionPane.showMessageDialog(null, "FallÃ³ la conexiÃ³n " + e);  
-	              return null;
-	        }       
-		} //FIN GET_CONN
 	
 
 }
