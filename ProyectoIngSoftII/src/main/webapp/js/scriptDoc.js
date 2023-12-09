@@ -138,7 +138,7 @@ function RegistrarIndumentaria(){
         btn_NuevoP.style.display = "block"; 
         formulario_registerP.style.display = "none";  
         btn_VolverP.style.display = "none";
-        ventana_prestamos.style.display = "none";
+        ventana_alumnos.style.display = "none";
         ventana_indumentaria.style.display = "none"; 
         
      }else{
@@ -147,7 +147,7 @@ function RegistrarIndumentaria(){
         btn_NuevoP.style.display = "block"; 
         formulario_registerP.style.display = "none";  
         btn_VolverP.style.display = "none";
-        ventana_prestamos.style.display = "none";
+        ventana_alumnos.style.display = "none";
         ventana_indumentaria.style.display = "none";         		
 	}
 }
