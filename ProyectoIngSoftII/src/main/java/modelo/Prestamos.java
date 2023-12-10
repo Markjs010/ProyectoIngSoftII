@@ -2,16 +2,21 @@ package modelo;
 
 import java.sql.Date;
 
-public class Prestamos implements Data{
-	
+public class Prestamos implements Data {
+
 	private String descripcion;
 	private Date fechaPrestamo;
-	private int idEstudiante, idIndumentaria;
-	
-	public Prestamos(String descripcion, Date fechaPrestamo, int idEstudiante, int idIndumentaria) {
+	private int id, idEstudiante, idIndumentaria;
+
+	public Prestamos() {
+		super();
+	}
+
+	public Prestamos(String descripcion, Date fechaPrestamo, int id, int idEstudiante, int idIndumentaria) {
 		super();
 		this.descripcion = descripcion;
 		this.fechaPrestamo = fechaPrestamo;
+		this.id = id;
 		this.idEstudiante = idEstudiante;
 		this.idIndumentaria = idIndumentaria;
 	}
@@ -32,6 +37,14 @@ public class Prestamos implements Data{
 		this.fechaPrestamo = fechaPrestamo;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getIdEstudiante() {
 		return idEstudiante;
 	}
@@ -47,6 +60,5 @@ public class Prestamos implements Data{
 	public void setIdIndumentaria(int idIndumentaria) {
 		this.idIndumentaria = idIndumentaria;
 	}
-	
 
 }

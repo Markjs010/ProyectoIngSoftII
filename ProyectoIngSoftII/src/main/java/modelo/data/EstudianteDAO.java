@@ -94,7 +94,7 @@ public class EstudianteDAO {
 
     // Método para agregar un nuevo estudiante
     public void addEstudiante(Estudiante estudiante) throws SQLException {
-        String sql = "INSERT INTO estudiante (NOMBRE, APELLIDO, OBSERVACIONES, USUARIO, PASSWORD, ID_CLASE, FECHA_NACIMIENTO, FECHA_INGRESO, ID_CATEGORIA, TELEFONO, SEGURO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO estudiante (NOMBRE, APELLIDO, OBSERVACIONES, USUARIO, PASSWORD, ID_CLASE, FECHA_NACIMIENTO, FECHA_INGRESO, ID_CATEGORIA, TELEFONO, SEGURO_MEDICO _MEDICO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = dataSource.getConnection();
                 PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, estudiante.getNombre());
@@ -114,7 +114,7 @@ public class EstudianteDAO {
 
     // Método para actualizar la información de un estudiante
     public void updateEstudiante(Estudiante estudiante) throws SQLException {
-        String sql = "UPDATE estudiante SET NOMBRE = ?, APELLIDO = ?, OBSERVACIONES = ?, USUARIO = ?, PASSWORD = ?, ID_CLASE = ?, FECHA_NACIMIENTO = ?, FECHA_INGRESO = ?, ID_CATEGORIA = ?, TELEFONO = ?, SEGURO = ? WHERE ID = ?";
+        String sql = "UPDATE estudiante SET NOMBRE = ?, APELLIDO = ?, OBSERVACIONES = ?, USUARIO = ?, PASSWORD = ?, ID_CLASE = ?, FECHA_NACIMIENTO = ?, FECHA_INGRESO = ?, ID_CATEGORIA = ?, TELEFONO = ?, SEGURO_MEDICO = ? WHERE ID = ?";
         try (Connection conn = dataSource.getConnection();
                 PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, estudiante.getNombre());
@@ -155,7 +155,7 @@ public class EstudianteDAO {
                 resultSet.getInt("ID_CATEGORIA"),
                 resultSet.getString("OBSERVACIONES"),
                 resultSet.getString("TELEFONO"),
-                resultSet.getString("SEGURO"),
+                resultSet.getString("SEGURO_MEDICO"),
                 resultSet.getString("USUARIO"),
                 resultSet.getString("PASSWORD"),
                 resultSet.getInt("ID_CLASE")
