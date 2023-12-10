@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -48,6 +49,20 @@ public class EstudianteDAO {
         return null;
     }
     
+    public Estudiante getEstudianteByUsuario(String usuario) throws SQLException {
+        String sql = "SELECT * FROM estudiante WHERE USUARIO = ?";
+        try (Connection conn = dataSource.getConnection();
+                PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setString(1, usuario);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return extractEstudianteFromResultSet(resultSet);
+                }
+            }
+        }
+        return null;
+    }
+    
     public Estudiante autenticar(String username, String password) throws SQLException {
         String sql = "SELECT * FROM estudiante WHERE USUARIO = ? AND PASSWORD = ?";
         try (Connection conn = dataSource.getConnection();
@@ -79,31 +94,41 @@ public class EstudianteDAO {
 
     // Método para agregar un nuevo estudiante
     public void addEstudiante(Estudiante estudiante) throws SQLException {
-        String sql = "INSERT INTO estudiante (NOMBRE, APELLIDO, OBSERVACIONES, USUARIO, PASSWORD, ID_CLASE) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO estudiante (NOMBRE, APELLIDO, OBSERVACIONES, USUARIO, PASSWORD, ID_CLASE, FECHA_NACIMIENTO, FECHA_INGRESO, ID_CATEGORIA, TELEFONO, SEGURO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection conn = dataSource.getConnection();
-        	PreparedStatement statement = conn.prepareStatement(sql)) {
+                PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, estudiante.getNombre());
             statement.setString(2, estudiante.getApellido());
             statement.setString(3, estudiante.getObservaciones());
             statement.setString(4, estudiante.getUsuario());
             statement.setString(5, estudiante.getPass());
             statement.setInt(6, estudiante.getIdClase());
+            statement.setDate(7, new java.sql.Date(estudiante.getFechaNacimiento().getTime())); // Convierte Date a java.sql.Date
+            statement.setDate(8, new java.sql.Date(estudiante.getFechaIngreso().getTime())); // Convierte Date a java.sql.Date
+            statement.setInt(9, estudiante.getIdCategoria());
+            statement.setString(10, estudiante.getTelefono());
+            statement.setString(11, estudiante.getSeguro());
             statement.executeUpdate();
         }
     }
 
     // Método para actualizar la información de un estudiante
     public void updateEstudiante(Estudiante estudiante) throws SQLException {
-        String sql = "UPDATE estudiante SET NOMBRE = ?, APELLIDO = ?, OBSERVACIONES = ?, USUARIO = ?, PASSWORD = ?, ID_CLASE = ? WHERE ID = ?";
+        String sql = "UPDATE estudiante SET NOMBRE = ?, APELLIDO = ?, OBSERVACIONES = ?, USUARIO = ?, PASSWORD = ?, ID_CLASE = ?, FECHA_NACIMIENTO = ?, FECHA_INGRESO = ?, ID_CATEGORIA = ?, TELEFONO = ?, SEGURO = ? WHERE ID = ?";
         try (Connection conn = dataSource.getConnection();
-        	PreparedStatement statement = conn.prepareStatement(sql)) {
+                PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, estudiante.getNombre());
             statement.setString(2, estudiante.getApellido());
             statement.setString(3, estudiante.getObservaciones());
             statement.setString(4, estudiante.getUsuario());
-			statement.setString(5, estudiante.getPass());
+            statement.setString(5, estudiante.getPass());
             statement.setInt(6, estudiante.getIdClase());
-            statement.setInt(7, estudiante.getId());
+            statement.setDate(7, new java.sql.Date(estudiante.getFechaNacimiento().getTime())); // Convierte Date a java.sql.Date
+            statement.setDate(8, new java.sql.Date(estudiante.getFechaIngreso().getTime())); // Convierte Date a java.sql.Date
+            statement.setInt(9, estudiante.getIdCategoria());
+            statement.setString(10, estudiante.getTelefono());
+            statement.setString(11, estudiante.getSeguro());
+            statement.setInt(12, estudiante.getId());
             statement.executeUpdate();
         }
     }
@@ -120,14 +145,21 @@ public class EstudianteDAO {
 
     // Método privado para extraer un estudiante de un conjunto de resultados de base de datos
     private Estudiante extractEstudianteFromResultSet(ResultSet resultSet) throws SQLException {
-        Estudiante estudiante = new Estudiante(null, null, null, null, 0);
-        estudiante.setId(resultSet.getInt("ID"));
-        estudiante.setNombre(resultSet.getString("NOMBRE"));
-        estudiante.setApellido(resultSet.getString("APELLIDO"));
-        estudiante.setObservaciones(resultSet.getString("OBSERVACIONES"));
-        estudiante.setUsuario(resultSet.getString("USUARIO"));
-        estudiante.setPass(resultSet.getString("PASSWORD"));
-        estudiante.setIdClase(resultSet.getInt("ID_CLASE"));
+        Estudiante estudiante = new Estudiante(
+                resultSet.getInt("ID"),
+                resultSet.getInt("NI"),
+                resultSet.getString("NOMBRE"),
+                resultSet.getString("APELLIDO"),
+                resultSet.getDate("FECHA_NACIMIENTO"),
+                resultSet.getDate("FECHA_INGRESO"),
+                resultSet.getInt("ID_CATEGORIA"),
+                resultSet.getString("OBSERVACIONES"),
+                resultSet.getString("TELEFONO"),
+                resultSet.getString("SEGURO"),
+                resultSet.getString("USUARIO"),
+                resultSet.getString("PASSWORD"),
+                resultSet.getInt("ID_CLASE")
+        );
         return estudiante;
     }
 }
