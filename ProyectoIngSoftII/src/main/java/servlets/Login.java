@@ -5,8 +5,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.Docente;
 import modelo.Estudiante;
 import modelo.Prestamos;
+import modelo.data.DocenteDAO;
 import modelo.data.EstudianteDAO;
 import modelo.data.PrestamoDAO;
 
@@ -24,6 +26,7 @@ public class Login extends HttpServlet {
 	String password;
 	private EstudianteDAO estudianteDao = new EstudianteDAO();
 	private PrestamoDAO prestamoDao = new PrestamoDAO();
+	private DocenteDAO docenteDao = new DocenteDAO();
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -55,15 +58,20 @@ public class Login extends HttpServlet {
 		boolean submitButtonPressed = request.getParameter("submit") != null;
 		try {
 		    Estudiante estudiante = estudianteDao.autenticar(username, password);
-		    
+		    Docente docente = docenteDao.autenticar(username, password);
 
 		    if (estudiante != null) {
-		        // Autenticación exitosa
+		        // Autenticación exitosa estudiante
 		    	List<Prestamos> prestamo = prestamoDao.obtenerPrestamosPorEstudiante(estudiante.getId());
 		    	request.setAttribute("estudiante", estudiante);
 		    	request.setAttribute("prestamos", prestamo);        // Puedes redirigir a otra página o realizar otras acciones
 		        getServletContext().getRequestDispatcher("/ModuloEstudiante.jsp").forward(request, response);
-		    } else {
+		    } else if(docente != null) {
+		    	// Autenticación exitosa docente
+		    	request.setAttribute("docente", docente);
+		        getServletContext().getRequestDispatcher("/ModuloDocente.jsp").forward(request, response);
+
+		    }else {
 		        // Autenticación fallida
 		        request.setAttribute("error", "Usuario y/o contraseña incorrectos");
 		        getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);

@@ -1,26 +1,43 @@
 package modelo.data;
 
 import modelo.Docente;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+import javax.swing.JOptionPane;
+
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.Date;
 import java.util.List;
 
 public class DocenteDAO {
-    private Connection conn;
+    private DataSource dataSource;
 
+    public DocenteDAO(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+    
     public DocenteDAO() {
-        super();
+        try {
+            Context context = new InitialContext();
+            // AJUSTAR "java:comp/env/jdbc/NombreDeTuFuenteDeDatos" CON NOMBRE CONFIGURADO EN context.xml
+            dataSource = (DataSource) context.lookup("java:comp/env/jdbc/RecursoJDBC");
+        } catch (NamingException e) {
+        	JOptionPane.showMessageDialog(null, "Falla en la conexion " + e);   
+        }
     }
 
-    // Método para obtener un docente por su ID
+    // MÃ©todo para obtener un docente por su ID
     public Docente getDocenteById(int docenteId) throws SQLException {
         String sql = "SELECT * FROM docente WHERE ID = ?";
-        try (PreparedStatement statement = this.conn.prepareStatement(sql)) {
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setInt(1, docenteId);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
@@ -30,12 +47,28 @@ public class DocenteDAO {
         }
         return null;
     }
+    
+    public Docente autenticar(String username, String password) throws SQLException {
+        String sql = "SELECT * FROM docente WHERE USUARIO = ? AND PASSWORD = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setString(1, username);
+            statement.setString(2, password);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    return extractDocenteFromResultSet(resultSet);
+                }
+            }
+        }
+        return null;
+    }
 
-    // Método para obtener todos los docentes
+    // MÃ©todo para obtener todos los docentes
     public List<Docente> getAllDocentes() throws SQLException {
         List<Docente> docentes = new ArrayList<>();
         String sql = "SELECT * FROM docente";
-        try (PreparedStatement statement = this.conn.prepareStatement(sql);
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement statement = conn.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 docentes.add(extractDocenteFromResultSet(resultSet));
@@ -44,10 +77,11 @@ public class DocenteDAO {
         return docentes;
     }
 
-    // Método para agregar un nuevo docente
+    // MÃ©todo para agregar un nuevo docente
     public void addDocente(Docente docente) throws SQLException {
         String sql = "INSERT INTO docente (NOMBRE, APELLIDO, USUARIO, PASSWORD, ID, ID_ESPECIALIDAD, ID_ADMIN, NI, FECHA_CONTRATO) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement statement = this.conn.prepareStatement(sql)) {
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, docente.getNombre());
             statement.setString(2, docente.getApellido());
             statement.setString(3, docente.getUsuario());
@@ -61,10 +95,11 @@ public class DocenteDAO {
         }
     }
 
-    // Método para actualizar la información de un docente
+    // MÃ©todo para actualizar la informaciÃ³n de un docente
     public void updateDocente(Docente docente) throws SQLException {
         String sql = "UPDATE docente SET NOMBRE = ?, APELLIDO = ?, USUARIO = ?, PASSWORD = ?, ID_ESPECIALIDAD = ?, ID_ADMIN = ?, NI = ?, FECHA_CONTRATO = ? WHERE ID = ?";
-        try (PreparedStatement statement = this.conn.prepareStatement(sql)) {
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setString(1, docente.getNombre());
             statement.setString(2, docente.getApellido());
             statement.setString(3, docente.getUsuario());
@@ -78,37 +113,35 @@ public class DocenteDAO {
         }
     }
 
-    // Método para borrar un docente por su ID
+    // MÃ©todo para borrar un docente por su ID
     public void deleteDocente(int docenteId) throws SQLException {
         String sql = "DELETE FROM docente WHERE ID = ?";
-        try (PreparedStatement statement = this.conn.prepareStatement(sql)) {
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement statement = conn.prepareStatement(sql)) {
             statement.setInt(1, docenteId);
             statement.executeUpdate();
         }
     }
 
-    // Método privado para extraer un docente de un conjunto de resultados de base de datos
+    // MÃ©todo privado para extraer un docente de un conjunto de resultados de base de datos
     private Docente extractDocenteFromResultSet(ResultSet resultSet) throws SQLException {
-        String nombre = resultSet.getString("NOMBRE");
-        String apellido = resultSet.getString("APELLIDO");
-        String usuario = resultSet.getString("USUARIO");
-        String pass = resultSet.getString("PASSWORD");
-        int id = resultSet.getInt("ID");
-        int idEspecialidad = resultSet.getInt("ID_ESPECIALIDAD");
-        int idAdmin = resultSet.getInt("ID_ADMIN");
-        int ni = resultSet.getInt("NI");
-        Date fechaContrato = resultSet.getDate("FECHA_CONTRATO");
-
-        Docente docente = new Docente(nombre, apellido, usuario, pass, id);
-        docente.setIdEspecialidad(idEspecialidad);
-        docente.setIdAdmin(idAdmin);
-        docente.setNi(ni);
-        docente.setFechaContrato(fechaContrato);
-
+        Docente docente = new Docente(
+        		resultSet.getInt("ID"),
+        		resultSet.getInt("NI"),
+        		resultSet.getString("NOMBRE"),
+        		resultSet.getString("APELLIDO"),
+        		resultSet.getDate("FECHA_CONTRATO"),
+        		resultSet.getInt("ID_ESPECIALIDAD"),
+        		resultSet.getString("USUARIO"),
+        		resultSet.getString("PASSWORD"),
+        		resultSet.getInt("ID_ADMINISTRADOR")
+        		);
+        		
         return docente;
     }
 
-    public void setConn(Connection conn) {
-        this.conn = conn;
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
     }
+
 }

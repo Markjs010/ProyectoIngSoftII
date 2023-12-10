@@ -2,7 +2,69 @@ package modelo;
 
 import java.sql.Date;
 
-public class Docente implements Data{
+public class Docente implements Data {
+
+	private String nombre, apellido, usuario, pass;
+	private int id, idEspecialidad, idAdmin, ni;
+	private Date fechaContrato;
+
+	public Docente() {
+		super();
+	}
+
+	public Docente(int id, int ni, String nombre, String apellido, Date fechaContrato, int idEspecialidad,
+			String usuario, String pass, int idAdmin) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.usuario = usuario;
+		this.pass = pass;
+		this.id = id;
+		this.idEspecialidad = idEspecialidad;
+		this.idAdmin = idAdmin;
+		this.ni = ni;
+		this.fechaContrato = fechaContrato;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public int getIdEspecialidad() {
 		return idEspecialidad;
@@ -36,58 +98,4 @@ public class Docente implements Data{
 		this.fechaContrato = fechaContrato;
 	}
 
-	private String nombre, apellido, usuario, pass;
-	private int id, idEspecialidad, idAdmin, ni;
-	private Date fechaContrato;
-	
-	
-	public Docente(String nombre, String apellido, String usuario, String pass, int id) {
-		super();
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.usuario = usuario;
-		this.pass = pass;
-		this.id = id;
-		}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-	public String getPass() {
-		return pass;
-	}
-
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
-	
 }
