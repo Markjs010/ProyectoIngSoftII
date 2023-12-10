@@ -54,9 +54,11 @@
 					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">NI</th>
 					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Nombre</th>
 					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Apellido</th>
-					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Año de Ingreso: activate to sort column ascending" style="width: 64px;">Fecha de Contrato</th>
-					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Especialidad</th>
-					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salario: activate to sort column ascending" style="width: 52px;">Administrador</th>
+					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Año de Ingreso: activate to sort column ascending" style="width: 64px;">Fecha de Nacimiento</th>
+					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Año de Ingreso: activate to sort column ascending" style="width: 64px;">Fecha de Ingreso</th>
+					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Categoria</th>
+					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salario: activate to sort column ascending" style="width: 52px;">Telefono</th>
+					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salario: activate to sort column ascending" style="width: 52px;">Seguro Medico</th>
 					                            </tr>
 					                        </thead>
 					                        <tbody>                                                              
@@ -204,43 +206,28 @@
 			                        	<table id="example" class="table table-striped table-bordered dataTable no-footer" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
 					                        <thead>
 					                            <tr role="row">
-					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">NI</th>
-					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Nombre</th>
-					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Apellido</th>
-					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Año de Ingreso: activate to sort column ascending" style="width: 64px;">Fecha de Contrato</th>
-					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Especialidad</th>
-					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salario: activate to sort column ascending" style="width: 52px;">Administrador</th>
+					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">ID</th>
+					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Detalle</th>
+					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Tipo</th>
 					                            </tr>
 					                        </thead>
 					                        <tbody>                                                              
 					                        <tr role="row" class="odd">
 					                                <td class="sorting_1">Cedric Kelly</td>
 					                                <td>Senior Javascript Developer</td>
-					                                <td>Edinburgh</td>                                
-					                                <td>2012/03/29</td>
-					                                <td>$433,060</td>
-					                                <td>San Francisco</td>
+					                                <td>Edinburgh</td>
 					                            </tr><tr role="row" class="even">
 					                                <td class="sorting_1">Garrett Winters</td>
 					                                <td>Contador</td>
-					                                <td>Tokyo</td>                                
-					                                <td>2011/07/25</td>
-					                                <td>$170,750</td>
-					                                <td>San Francisco</td>
+					                                <td>Tokyo</td>
 					                            </tr><tr role="row" class="odd">
 					                                <td class="sorting_1">Jonas Alexander</td>
 					                                <td>Developer</td>
-					                                <td>San Francisco</td>                                
-					                                <td>2010/07/14</td>
-					                                <td>$86,500</td>
 					                                <td>San Francisco</td>
 					                            </tr><tr role="row" class="even">
 					                                <td class="sorting_1">Tiger Nixon</td>
 					                                <td>Arquitecto</td>
-					                                <td>Edinburgh</td>                                
-					                                <td>2011/04/25</td>
-					                                <td>$320,800</td>
-					                                <td>San Francisco</td>
+					                                <td>Edinburgh</td>
 					                            </tr></tbody>        
 					                       </table>
 					                       <div class="dataTables_info" id="example_info" role="status" aria-live="polite">Mostrando registros del 1 al 4 de un total de 4 registros</div>
@@ -321,12 +308,11 @@
 			                        	<table id="example" class="table table-striped table-bordered dataTable no-footer" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
 					                        <thead>
 					                            <tr role="row">
-					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">NI</th>
-					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Nombre</th>
-					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Apellido</th>
-					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Año de Ingreso: activate to sort column ascending" style="width: 64px;">Fecha de Contrato</th>
-					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Especialidad</th>
-					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salario: activate to sort column ascending" style="width: 52px;">Administrador</th>
+					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">ID</th>
+					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Descripción</th>
+					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Estudiante</th>
+					                            	<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Año de Ingreso: activate to sort column ascending" style="width: 64px;">Fecha de Prestamo</th>
+					                            	<th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Nombre: activate to sort column descending" style="width: 63px;">Indumentaria</th>
 					                            </tr>
 					                        </thead>
 					                        <tbody>                                                              
@@ -336,28 +322,24 @@
 					                                <td>Edinburgh</td>                                
 					                                <td>2012/03/29</td>
 					                                <td>$433,060</td>
-					                                <td>San Francisco</td>
 					                            </tr><tr role="row" class="even">
 					                                <td class="sorting_1">Garrett Winters</td>
 					                                <td>Contador</td>
 					                                <td>Tokyo</td>                                
 					                                <td>2011/07/25</td>
 					                                <td>$170,750</td>
-					                                <td>San Francisco</td>
 					                            </tr><tr role="row" class="odd">
 					                                <td class="sorting_1">Jonas Alexander</td>
 					                                <td>Developer</td>
 					                                <td>San Francisco</td>                                
 					                                <td>2010/07/14</td>
 					                                <td>$86,500</td>
-					                                <td>San Francisco</td>
 					                            </tr><tr role="row" class="even">
 					                                <td class="sorting_1">Tiger Nixon</td>
 					                                <td>Arquitecto</td>
 					                                <td>Edinburgh</td>                                
 					                                <td>2011/04/25</td>
 					                                <td>$320,800</td>
-					                                <td>San Francisco</td>
 					                            </tr></tbody>        
 					                       </table>
 					                       <div class="dataTables_info" id="example_info" role="status" aria-live="polite">Mostrando registros del 1 al 4 de un total de 4 registros</div>
