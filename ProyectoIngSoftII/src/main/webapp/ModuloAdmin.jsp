@@ -166,6 +166,18 @@ List<Docente> docentes = (List<Docente>) request.getAttribute("Docente");
 		    	<div style="text-align: center;">
 		    	<h1>Formulario de Ingreso de Docente</h1>
 		    	<div class="containerLittle">
+		    	
+		    		<%
+					if (request.getAttribute("error") != null) {
+					%>
+					<div style="color: red;"><%=request.getAttribute("error")%></div>
+					<%
+					} else if (request.getAttribute("exito") != null) {
+					%>
+					<div style="color: green;"><%=request.getAttribute("exito")%></div>
+					<%
+					}
+					%>
 		    		<form action="">
 		            	<label for="NI">NI:</label>
 		            	<input type="text" id="NI" name="NI" required>

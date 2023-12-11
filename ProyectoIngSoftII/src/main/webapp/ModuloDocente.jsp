@@ -234,28 +234,29 @@ List<Estudiante> estudiantes = (List<Estudiante>) request.getAttribute("estudian
 					}
 					%>
 					<form action="AgregaEstudiante" method="post">
-						<label for="NI">NI:</label> <input type="text" id="NI" name="NI"
-							required> <label for="nombre">Nombre:</label> <input
-							type="text" id="nombre" name="nombre" required> <label
-							for="apellido">Apellido:</label> <input type="text" id="apellido"
-							name="apellido" required> <label for="fechaNacimiento">Fecha
-							de Nacimiento:</label> <input type="date" id="fechaNacimiento"
-							name="fechaNacimiento" required> <label
-							for="fechaIngreso">Fecha de Ingreso:</label> <input type="date"
-							id="fechaIngreso" name="fechaIngreso" required> <label
-							for="categoria">Categoria:</label> <input type="text"
-							id="categoria" name="categoria" required> <label
-							for="Telefono">Telefono:</label> <input type="text" id="Telefono"
-							name="Telefono" required> <label for="seguroM">Seguro
-							Medico:</label> <input type="text" id="seguroM" name="seguroM" required>
-
-						<label for="usuario">Usuario:</label> <input type="text"
-							id="usuario" name="usuario" required> <label
-							for="password">Contraseña:</label> <input type="password"
-							id="password" name="password" required> <label
-							for="idDocente">Id Docente:</label> <input type="text"
-							id="idDocente" name="idDocente" required> <label
-							for="observaciones">Observaciones:</label>
+						<label for="NI">NI:</label> 
+							<input type="text" id="NI" name="NI" required> 
+						<label for="nombre">Nombre:</label> 
+							<input type="text" id="nombre" name="nombre" required> 
+						<label for="apellido">Apellido:</label> 
+							<input type="text" id="apellido" name="apellido" required> 
+						<label for="fechaNacimiento">Fecha de Nacimiento:</label> 
+							<input type="date" id="fechaNacimiento"	name="fechaNacimiento" required> 
+						<label for="fechaIngreso">Fecha de Ingreso:</label> 
+							<input type="date" id="fechaIngreso" name="fechaIngreso" required> 
+						<label for="categoria">Categoria:</label> 
+							<input type="text" id="categoria" name="categoria" required> 
+						<label for="Telefono">Telefono:</label> 
+							<input type="text" id="Telefono" name="Telefono" required> 
+						<label for="seguroM">Seguro Medico:</label> 
+							<input type="text" id="seguroM" name="seguroM" required>
+						<label for="usuario">Usuario:</label> 
+							<input type="text" id="usuario" name="usuario" required> 
+						<label for="password">Contraseña:</label> 
+							<input type="password" id="password" name="password" required> 
+						<label for="idDocente">Id Docente:</label> 
+							<input type="text" id="idDocente" name="idDocente" required> 
+						<label for="observaciones">Observaciones:</label>
 						<textarea id="observaciones" name="observaciones" rows="8"
 							cols="40"></textarea>
 
