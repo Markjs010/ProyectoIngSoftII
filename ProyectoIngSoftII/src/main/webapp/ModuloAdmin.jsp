@@ -1,4 +1,15 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
+<%@ page import="modelo.Docente"%>
+<%@ page import="modelo.Multimedia"%>
+<%@ page import="java.util.List"%>
+<%
+Docente docente = (Docente) request.getAttribute("Docente");
+Multimedia multimedia = (Multimedia) request.getAttribute("Multimedia");
+%>
+<%
+List<Multimedia> listMultimedia = (List<Multimedia>) request.getAttribute("Multimedia");
+List<Docente> docentes = (List<Docente>) request.getAttribute("Docente");
+%>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -86,6 +97,28 @@
 					                                <td>2011/04/25</td>
 					                                <td>$320,800</td>
 					                                <td>San Francisco</td>
+					                                
+					                            <tr role="row" class="even">
+													<td class="sorting_1">562</td>
+													<td>Arquitecto</td>
+													<td>2011/04/25</td>
+													<%
+													for (Docente listdocente : docentes) {
+													%>
+												</tr>
+												<tr role="row">
+											<td class="sorting_1"><%=listdocente.getId()%></td>
+											<td ><%=listdocente.getNi()%></td>
+											<td ><%=listdocente.getNombre()%></td>
+											<td ><%=listdocente.getApellido()%></td>
+											<td ><%=listdocente.getFechaContrato()%></td>
+											<td ><%=listdocente.getIdEspecialidad()%></td>
+											<td ><%=listdocente.getIdAdmin()%></td>
+											
+										</tr>
+										<%
+										}
+										%>
 					                            </tr></tbody>        
 					                       </table>
 					                       <div class="dataTables_info" id="example_info" role="status" aria-live="polite">Mostrando registros del 1 al 4 de un total de 4 registros</div>
