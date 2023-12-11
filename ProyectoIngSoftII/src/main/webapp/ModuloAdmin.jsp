@@ -7,7 +7,7 @@ Docente docente = (Docente) request.getAttribute("Docente");
 Multimedia multimedia = (Multimedia) request.getAttribute("Multimedia");
 %>
 <%
-List<Multimedia> listMultimedia = (List<Multimedia>) request.getAttribute("Multimedia");
+List<Multimedia> Multimedia = (List<Multimedia>) request.getAttribute("Multimedia");
 List<Docente> docentes = (List<Docente>) request.getAttribute("Docente");
 %>
 <html lang="es">
@@ -230,7 +230,16 @@ List<Docente> docentes = (List<Docente>) request.getAttribute("Docente");
 					                            </tr><tr role="row" class="odd">
 					                                <td class="sorting_1">JonasAlexander.png</td>
 					                            </tr><tr role="row" class="even">
-					                                <td class="sorting_1">Tiger Nixon</td>
+					                                <%
+													for (Multimedia listMultimedia : Multimedia) {
+													%>
+												</tr>
+												<tr role="row">
+													<td class="sorting_1"><%=listMultimedia.getInformacion()%></td>
+												</tr>
+												<%
+												}
+												%>
 					                            </tr></tbody>        
 					                       </table>
 					                       <div class="dataTables_info" id="example_info" role="status" aria-live="polite">Mostrando registros del 1 al 4 de un total de 4 registros</div>
