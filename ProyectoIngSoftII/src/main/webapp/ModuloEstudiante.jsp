@@ -179,7 +179,7 @@ List<Prestamos> prestamos = (List<Prestamos>) request.getAttribute("prestamos");
 										<%
 										}
 										%>
-										</tr>
+										
 									</tbody>
 								</table>
 								<div class="dataTables_info" id="example_info" role="status"

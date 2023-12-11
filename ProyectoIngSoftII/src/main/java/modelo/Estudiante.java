@@ -1,11 +1,11 @@
 package modelo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Estudiante implements Data {
 	private String nombre, apellido, observaciones, telefono, seguro, usuario, pass;
 	private Date fechaNacimiento, fechaIngreso;
-	private int id, ni, idCategoria, idClase;
+	private int id, ni, idCategoria, idDocente;
 
 	public Estudiante() {
 		super();
@@ -27,7 +27,7 @@ public class Estudiante implements Data {
 		this.id = id;
 		this.ni = ni;
 		this.idCategoria = idCategoria;
-		this.idClase = idClase;
+		this.idDocente = idClase;
 	}
 
 	public String getNombre() {
@@ -126,12 +126,12 @@ public class Estudiante implements Data {
 		this.idCategoria = idCategoria;
 	}
 
-	public int getIdClase() {
-		return idClase;
+	public int getIdDocente() {
+		return idDocente;
 	}
 
-	public void setIdClase(int idClase) {
-		this.idClase = idClase;
+	public void setIdDocente(int idDocente) {
+		this.idDocente = idDocente;
 	}
 
 }

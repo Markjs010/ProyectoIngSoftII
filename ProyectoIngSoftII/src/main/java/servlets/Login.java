@@ -5,9 +5,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelo.Clases;
 import modelo.Docente;
 import modelo.Estudiante;
 import modelo.Prestamos;
+import modelo.data.ClasesDAO;
 import modelo.data.DocenteDAO;
 import modelo.data.EstudianteDAO;
 import modelo.data.PrestamoDAO;
@@ -27,6 +29,7 @@ public class Login extends HttpServlet {
 	private EstudianteDAO estudianteDao = new EstudianteDAO();
 	private PrestamoDAO prestamoDao = new PrestamoDAO();
 	private DocenteDAO docenteDao = new DocenteDAO();
+	private ClasesDAO clasesDao = new ClasesDAO();
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -63,11 +66,14 @@ public class Login extends HttpServlet {
 		    if (estudiante != null) {
 		        // Autenticación exitosa estudiante
 		    	List<Prestamos> prestamo = prestamoDao.obtenerPrestamosPorEstudiante(estudiante.getId());
-		    	request.setAttribute("estudiante", estudiante);
+		    	request.setAttribute("estudiantes", estudiante);
 		    	request.setAttribute("prestamos", prestamo);        // Puedes redirigir a otra página o realizar otras acciones
 		        getServletContext().getRequestDispatcher("/ModuloEstudiante.jsp").forward(request, response);
 		    } else if(docente != null) {
 		    	// Autenticación exitosa docente
+		    	// 
+		    	List<Estudiante> estudiantes = estudianteDao.getAllEstudiantesByDocenteId(docente.getId());
+		    	request.setAttribute("estudiantes", estudiantes);
 		    	request.setAttribute("docente", docente);
 		        getServletContext().getRequestDispatcher("/ModuloDocente.jsp").forward(request, response);
 
@@ -77,7 +83,7 @@ public class Login extends HttpServlet {
 		        getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
 		    }
 		} catch (SQLException e) {
-			response.sendRedirect("/error.jsp"); 
+			JOptionPane.showMessageDialog(null, "Falla en la conexion " + e); 
 		}
 	}
 
@@ -85,6 +91,7 @@ public class Login extends HttpServlet {
 		this.estudianteDao = estudianteDao;
 	}
 	
+
 	
 
 }

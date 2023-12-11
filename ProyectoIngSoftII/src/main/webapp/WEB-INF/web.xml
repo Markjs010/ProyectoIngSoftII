@@ -45,4 +45,14 @@
     <servlet-name>ModuloEstudianteServlet</servlet-name>
     <url-pattern>/ModuloEstudiante</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AgregaEstudiante</display-name>
+    <servlet-name>AgregaEstudiante</servlet-name>
+    <servlet-class>servlets.AgregaEstudiante</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AgregaEstudiante</servlet-name>
+    <url-pattern>/AgregaEstudiante</url-pattern>
+  </servlet-mapping>
 </web-app>
